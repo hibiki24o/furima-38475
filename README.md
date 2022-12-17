@@ -1,24 +1,30 @@
 # usersテーブル
 
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| nickname           | string | null: false               |
-| password           | string | null: false               |
-| encrypted_password | string | null: false               |
-| email              | string | null: false, unique: true |
-| date               | string | null: false               |
+| Column             | Type   | Options                        |
+| ------------------ | ------ | ------------------------------ |
+| nickname           | string | null: false, foreign_key: true |
+| encrypted_password | string | null: false                    |
+| email              | string | null: false, unique: true      |
+| fast_name          | string | null: false,                   |
+| middle_name        | string | null: false,                   |
+| fast_kana_name     | string | null: false,                   |
+| middle_kana_name   | string | null: false,                   |
+| birthday           | date   | null: false                    |
  
 # productsテーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
+| img                | text       | null: false                    |
 | title              | string     | null: false                    |
-| product_user       | string     | null: false                    |
-| explanation        | string     | null: false                    |
+| product_user       | string     | null: false, foreign_key: true |
+| explanation        | text       | null: false                    |
+| category           | text       | null: false                    | 
+| Status             | text       | null: false                    |
 | delivery_charge    | string     | null: false                    |
-| sender             | string     | null: false                    |
 | prefecture         | references | null: false, foreign_key: true |
-
+| days               | string     | null: false                    |
+| price              | string     | null: false                    |
 
 # shoppingsテーブル
 
@@ -26,19 +32,15 @@
 | ------------------ | ---------- | ------------------------------ |
 | user               | references | null: false, foreign_key: true |
 | product            | string     | null: false                    |
-| title              | string     | null: false                    |
-| price              | integer    | null: false                    |
-| prefecture         | references | null: false, foreign_key: true |
 
 
 # shipping_addressテーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| post_code          | integer    | null: false                    |
+| post_code          | string     | null: false                    |
 | prefecture         | string     | null: false                    |
 | city               | string     | null: false                    |
-| address            | integer    | null: false                    |
-| building_name      | string     | null: false                    |
-| tell               | integer    | null: false                    |
+| address            | string     | null: false                    |
+| tell               | string     | null: false                    |
 
