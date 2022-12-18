@@ -30,7 +30,7 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | user               | references | null: false, foreign_key: true |
-| product            | references | null: false  foreign_key: true |
+| product            | references | null: false, foreign_key: true |
 
 
 # shipping_addressテーブル
@@ -38,7 +38,7 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | post_code          | string     | null: false                    |
-| prefecture         | string     | null: false                    |
+| prefecture         | string     | null: false, foreign_key: true |
 | city               | string     | null: false                    |
 | address            | string     | null: false                    |
 | build_name         | string     | null: false                    |
