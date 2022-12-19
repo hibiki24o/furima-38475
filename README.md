@@ -34,6 +34,7 @@
 
 * belongs_to :user
 * has_one :shipping_addresse
+* has_one :shopping
 
 # shoppingsテーブル
 
