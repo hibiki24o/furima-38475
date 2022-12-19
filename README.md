@@ -27,13 +27,13 @@
 | status_id             | integer    | null: false                    |
 | delivery_charge_id    | integer    | null: false                    |
 | prefecture_id         | integer    | null: false                    |
-| day_id               | integer    | null: false                    |
+| scheduled_day_id      | integer    | null: false                    |
 | price                 | integer    | null: false                    |
 
 ### Association
 
 * belongs_to :user
-* has_one :shipping_address
+* has_one :shipping_addresse
 
 # shoppingsテーブル
 
@@ -44,24 +44,23 @@
 
 ### Association
 
-* belongs_to :shipping_addres
+* has_one :shipping_addresse
 * belongs_to :product
 * belongs_to :user
 
 
-# shipping_addressテーブル
+# shipping_addressesテーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| post_code_id       | string     | null: false                    |
+| post_code          | string     | null: false                    |
 | prefecture_id      | integer    | null: false                    |
 | city               | string     | null: false                    |
 | address            | string     | null: false                    |
 | build_name         | string     |                                |
 | tell               | string     | null: false                    |
-| shoppings          | references | null: false, foreign_key: true |
+| shopping           | references | null: false, foreign_key: true |
 
 ### Association
 
-* belongs_to :product
 * belongs_to :shopping
