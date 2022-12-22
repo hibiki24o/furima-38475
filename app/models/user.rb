@@ -9,7 +9,7 @@ class User < ApplicationRecord
          validates :middle_name,         presence: true
          validates :fast_kana_name,      presence: true
          validates :middle_kana_name,    presence: true
-         validates :birthday,            presence: true
+         validates :birth_date,          presence: true
 
          PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
          validates_format_of :password, with: PASSWORD_REGEX
