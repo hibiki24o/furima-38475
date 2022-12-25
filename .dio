@@ -91,7 +91,7 @@
                 <mxCell id="36" value="tell" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="32">
                     <mxGeometry y="176" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="73" value="shoppings" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="32">
+                <mxCell id="73" value="shopping" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="32">
                     <mxGeometry y="206" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="47" value="" style="fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;strokeWidth=2;entryX=-0.004;entryY=0.048;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="34">

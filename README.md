@@ -9,7 +9,7 @@
 | middle_name        | string | null: false                    |
 | fast_kana_name     | string | null: false                    |
 | middle_kana_name   | string | null: false                    |
-| birthday           | date   | null: false                    |
+| birth_date         | date   | null: false                    |
 
 ### Association
 
