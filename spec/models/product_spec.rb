@@ -9,6 +9,11 @@ RSpec.describe Product, type: :model do
     it 'すべての出品情報が存在すれば登録できる' do
       expect(@product).to be_valid
      end
+    it "priceが300ちょうどだと登録できる" do
+      @product.price = "300"
+      expect(@product).to be_valid
+    end
+    
   end
 
   context '商品の出品ができないとき' do
@@ -56,6 +61,16 @@ RSpec.describe Product, type: :model do
       @product.price = ''
       @product.valid?
       expect(@product.errors.full_messages).to include("Price is invalid")  
+    end
+    it "priceが299以下だと登録できないこと" do
+      @product.price = "299"
+      @product.valid?
+      expect(@product.errors.full_messages).to include("Price must be greater than or equal to 300")
+    end
+    it 'userが紐付いていなければ出品できない' do
+       @product.user = nil
+       @product.valid?
+       expect(@product.errors.full_messages).to include("User must exist")
     end
   end
 end
