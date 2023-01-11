@@ -5,16 +5,15 @@ RSpec.describe Product, type: :model do
     @product = FactoryBot.build(:product)
   end
 
-  describe '商品の出品ができる' do
+  context '商品の出品ができるとき' do
     it 'すべての出品情報が存在すれば登録できる' do
-      expect(@product).to be_valid
-     end
-    it "priceが300ちょうどだと登録できる" do
-      @product.price = "300"
-      expect(@product).to be_valid
-    end
-    
+    expect(@product).to be_valid
+   end
+  it "priceが300ちょうどだと登録できる" do
+    @product.price = "300"
+    expect(@product).to be_valid
   end
+end
 
   context '商品の出品ができないとき' do
     it ' 商品画像が空では登録できない' do
@@ -67,6 +66,16 @@ RSpec.describe Product, type: :model do
       @product.valid?
       expect(@product.errors.full_messages).to include("Price must be greater than or equal to 300")
     end
+    it "価格に半角数字以外が含まれている場合は出品できない" do
+      @product.price = ''
+      @product.valid?
+      expect(@product.errors.full_messages).to include( "Price is not a number")
+    end
+    it "価格が9_999_999円を超えると出品できない" do
+      @product.price = "10000000"
+      @product.valid?
+      expect(@product.errors.full_messages).to include("Price must be less than or equal to 9999999")
+    end
     it 'userが紐付いていなければ出品できない' do
        @product.user = nil
        @product.valid?
@@ -74,3 +83,4 @@ RSpec.describe Product, type: :model do
     end
   end
 end
+
