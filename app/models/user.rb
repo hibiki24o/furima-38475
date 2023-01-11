@@ -11,7 +11,7 @@ class User < ApplicationRecord
          validates :middle_kana_name,    presence: true,format: { with: /\A[ァ-ヶー]+\z/, message: '全角文字を使用してください' }
          validates :birth_date,          presence: true
 
-         
+         has_many :products
 
          PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
          validates_format_of :password, with: PASSWORD_REGEX
