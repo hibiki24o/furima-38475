@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   before_action :move_to_index, only: [:edit, :update]
+  before_action :set_product, only: [:edit, :show]
 
   def index
     @products = Product.order("created_at DESC")
@@ -20,11 +21,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
   
   def edit
-    @product = Product.find(params[:id])
   end
 
   def update
@@ -50,4 +49,9 @@ class ProductsController < ApplicationController
       redirect_to user_session_path
     end
   end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
 end
