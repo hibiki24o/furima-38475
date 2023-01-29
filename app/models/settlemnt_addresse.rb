@@ -1,6 +1,6 @@
 class SettlemntAddresse
   include ActiveModel::Model
-  attr_accessor :image, :postal_code, :prefecture_id, :city, :address, :house_number, :build_name, :tell, :user_id, :day, :product_id, :price
+  attr_accessor :image, :postal_code, :prefecture_id, :city, :address, :house_number, :build_name, :tell, :user_id, :day, :product_id, :price, :token
 
   with_options presence: true do
     validates :user_id
