@@ -13,7 +13,7 @@ class SettlemntAddressesController < ApplicationController
   def create
     @settlemnt_address = SettlemntAddresse.new(settlemnt_params)
     if @settlemnt_address.valid?
-      pay_item
+       pay_item
        @settlemnt_address.save
       redirect_to root_path
     else

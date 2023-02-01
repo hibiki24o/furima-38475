@@ -3,8 +3,6 @@ FactoryBot.define do
     title {Faker::Lorem.sentence}
     explanation {Faker::Lorem.sentence}
     association :user 
-
-
     category_id          {2}
     status_id            {2}
     delivery_charge_id   {2}
