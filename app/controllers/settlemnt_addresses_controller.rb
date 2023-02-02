@@ -7,10 +7,6 @@ class SettlemntAddressesController < ApplicationController
     @settlemnt_address = SettlemntAddresse.new
   end
 
-  def new
-    @settlemnt_address = SettlemntAddresse.new
-  end
-
   def create
     @settlemnt_address = SettlemntAddresse.new(settlemnt_params)
     if @settlemnt_address.valid?
@@ -18,7 +14,6 @@ class SettlemntAddressesController < ApplicationController
        @settlemnt_address.save
        redirect_to root_path
     else
-      redirect_to  root_path
       render 'index'
     end
   end
