@@ -1,6 +1,7 @@
 class SettlemntAddressesController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, only: :index
   before_action :set_product, only: [:index, :create]
+  before_action :send_product, only: [:index, :create]
 
   def index
     @settlemnt_address = SettlemntAddresse.new
@@ -15,8 +16,9 @@ class SettlemntAddressesController < ApplicationController
     if @settlemnt_address.valid?
        pay_item
        @settlemnt_address.save
-      redirect_to root_path
+       redirect_to root_path
     else
+      redirect_to  root_path
       render 'index'
     end
   end
@@ -39,5 +41,13 @@ class SettlemntAddressesController < ApplicationController
   def set_product
     @product = Product.find(params[:product_id])
   end
+
+  def send_product
+    if current_user.id == @product.user_id or @product.settlemnt.present?
+       redirect_to  root_path
+    end
+  end
+
+
 end
  
