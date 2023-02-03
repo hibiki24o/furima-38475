@@ -6,7 +6,7 @@ RSpec.describe SettlemntAddresse, type: :model do
        @user = FactoryBot.create(:user)
        @product = FactoryBot.create(:product)
        @settlemnt= FactoryBot.build(:settlemnt_addresse, user_id: @user.id, product_id: @product.id)
-       sleep(0.1)
+       sleep(0.5)
     end
 
   context '内容に問題ない場合' do
@@ -41,7 +41,7 @@ RSpec.describe SettlemntAddresse, type: :model do
     end
 
     it '都道府県に「---」が選択されている場合は購入できないこと' do
-      @settlemnt.prefecture_id = '---'
+      @settlemnt.prefecture_id = 1
       @settlemnt.valid?
       expect(@settlemnt.errors.full_messages).to include("Prefecture can't be blank")
     end

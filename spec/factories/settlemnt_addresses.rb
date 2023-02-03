@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :settlemnt_addresse do
 
       postal_code      { '123-1234'}
-      prefecture_id    { 3 }
+      prefecture_id    {3}
       city             { '横浜市緑区' }
       address          { '3-4' }
       build_name       { '青山ビル' }
