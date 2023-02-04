@@ -14,7 +14,7 @@
 ### Association
 
 * has_many :products
-* has_many :shoppings
+* has_many :settlemnts
 
 # productsテーブル
 
@@ -33,10 +33,9 @@
 ### Association
 
 * belongs_to :user
-* has_one :shipping_addresse
-* has_one :shopping
+* has_one :settlemnt
 
-# shoppingsテーブル
+# settlemntsテーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -60,8 +59,8 @@
 | address            | string     | null: false                    |
 | build_name         | string     |                                |
 | tell               | string     | null: false                    |
-| shopping           | references | null: false, foreign_key: true |
+| settlemnt          | references | null: false, foreign_key: true |
 
 ### Association
 
-* belongs_to :shopping
+* belongs_to :settlemnt

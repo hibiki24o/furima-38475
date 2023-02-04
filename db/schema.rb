@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_20_102843) do
+ActiveRecord::Schema.define(version: 2023_01_29_104205) do
 
   create_table "action_mailbox_inbound_emails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -57,6 +57,28 @@ ActiveRecord::Schema.define(version: 2022_12_20_102843) do
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
+  create_table "settlemnts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_settlemnts_on_product_id"
+    t.index ["user_id"], name: "index_settlemnts_on_user_id"
+  end
+
+  create_table "shipping_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postal_code", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "build_name"
+    t.string "tell", null: false
+    t.bigint "settlemnt_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["settlemnt_id"], name: "index_shipping_addresses_on_settlemnt_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -77,4 +99,7 @@ ActiveRecord::Schema.define(version: 2022_12_20_102843) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "products", "users"
+  add_foreign_key "settlemnts", "products"
+  add_foreign_key "settlemnts", "users"
+  add_foreign_key "shipping_addresses", "settlemnts"
 end
